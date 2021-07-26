@@ -85,13 +85,13 @@ export function calculateNextValue(func, value, props) {
   };
 
   const indexToGet = operations[func](Object.keys(props.marks).indexOf(JSON.stringify(value)), 1);
-  const keyToGet = Object.keys(props.marks)[indexToGet];
+  const keyToReturn = Object.keys(props.marks)[indexToGet];
 
   if (props.step) {
     return operations[func](value, props.step);
   }
-  if (!!Object.keys(props.marks).length && !!props.marks[keyToGet]) {
-    return props.marks[keyToGet];
+  if (!!Object.keys(props.marks).length && !!props.marks[keyToReturn]) {
+    return keyToReturn;
   }
   return value;
 }
